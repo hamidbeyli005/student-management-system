@@ -4,11 +4,13 @@
  */
 package bean;
 
+import java.io.Serializable;
+
 /**
  *
  * @author hamidhamidbayli
  */
-public class Config {
+public class Config implements Serializable{
 
     private static Config config = null;
     private Student[] students = new Student[0];

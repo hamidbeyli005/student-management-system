@@ -4,8 +4,8 @@
  */
 package service.menu;
 
+import java.util.Scanner;
 import service.menu.interfaces.ILoginService;
-import service.menu.interfaces.MenuService;
 
 /**
  *
@@ -13,9 +13,20 @@ import service.menu.interfaces.MenuService;
  */
 public class LoginService implements ILoginService {
 
-    @Override 
+    @Override
     public void process() {
-        System.out.println("Login service");
+        System.out.println("Please enter username");
+        Scanner nameScanner = new Scanner(System.in);
+        String username = nameScanner.nextLine();
+
+        System.out.println("Please enter password");
+        Scanner pwdScanner = new Scanner(System.in);
+        String password = pwdScanner.nextLine();
+
+        if (!(username.equals("admin") && password.equals("admin"))) {
+            throw new IllegalArgumentException("User or password is invalid");
+        }
+
+        System.out.println("Login successfully");
     }
-    
 }
