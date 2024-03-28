@@ -4,6 +4,7 @@
  */
 package util;
 
+import bean.Config;
 import service.menu.AddStudentService;
 import service.menu.AddTeacherService;
 import service.menu.LoginService;
@@ -65,9 +66,18 @@ public enum Menu {
     public static void showAllMenu() {
         Menu[] menuList = Menu.values();
         for (int i = 0; i < menuList.length; i++) {
-            if (menuList[i] != UNKNOWN) {
+            if (menuList[i] == UNKNOWN) {
+                continue;
+            }
+
+            boolean isLoggedIn = Config.isLoggedIn();
+            boolean isLoginOrRegister = menuList[i] == LOGIN || menuList[i] == REGISTER;
+            boolean isLoggedInAndNotLoginOrRegister = isLoggedIn && menuList[i] != LOGIN && menuList[i] != REGISTER;
+
+            if ((!isLoggedIn && isLoginOrRegister) || isLoggedInAndNotLoginOrRegister) {
                 System.out.println(menuList[i]);
             }
         }
+
     }
 }

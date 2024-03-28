@@ -4,6 +4,7 @@
  */
 package service.menu;
 
+import bean.Config;
 import java.util.Scanner;
 import service.menu.interfaces.ILoginService;
 
@@ -28,5 +29,6 @@ public class LoginService implements ILoginService {
         }
 
         System.out.println("Login successfully");
+        Config.setLoggedIn(true);
     }
 }

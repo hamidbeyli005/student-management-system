@@ -15,6 +15,7 @@ public class Config implements Serializable {
     private static Config config = null;
     private Student[] students = new Student[0];
     private Teacher[] teachers = new Teacher[0];
+    private static boolean loggedIn;
 
     public static Config instance() {
         if (config == null) {
@@ -55,6 +56,18 @@ public class Config implements Serializable {
         }
         newTeachers[newTeachers.length - 1] = teacher;
         teachers = newTeachers;
+    }
+
+    public static Config getConfig() {
+        return config;
+    }
+
+    public static boolean isLoggedIn() {
+        return loggedIn;
+    }
+
+    public static void setLoggedIn(boolean loggedIn) {
+        Config.loggedIn = loggedIn;
     }
 
 }
