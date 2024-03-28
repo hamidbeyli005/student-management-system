@@ -41,18 +41,20 @@ public class Config implements Serializable{
 
     public void createStudent(Student student) {
         Student[] newStudents = new Student[students.length + 1];
-        for (int i = 0; i < newStudents.length; i++) {
+        for (int i = 0; i < students.length; i++) {
             newStudents[i] = students[i];
         }
         newStudents[newStudents.length - 1] = student;
+        students = newStudents;
     }
 
     public void createTeacher(Teacher teacher) {
-        Teacher[] newTeacher = new Teacher[teachers.length + 1];
-        for (int i = 0; i < newTeacher.length; i++) {
-            newTeacher[i] = teachers[i];
+        Teacher[] newTeachers = new Teacher[teachers.length + 1];
+        for (int i = 0; i < teachers.length; i++) {
+            newTeachers[i] = teachers[i];
         }
-        newTeacher[newTeacher.length - 1] = teacher;
+        newTeachers[newTeachers.length - 1] = teacher;
+        teachers = newTeachers;
     }
 
 }

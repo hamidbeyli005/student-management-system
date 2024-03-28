@@ -10,7 +10,7 @@ import java.io.Serializable;
  *
  * @author hamidhamidbayli
  */
-public class Person implements Serializable{
+public class Person implements Serializable {
     private String name;
     private String surname;
     private int age;

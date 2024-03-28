@@ -4,6 +4,7 @@
  */
 package util;
 
+import service.menu.AddStudentService;
 import service.menu.LoginService;
 import service.menu.interfaces.MenuService;
 import service.menu.RegisterService;
@@ -15,7 +16,7 @@ import service.menu.RegisterService;
 public enum Menu {
     LOGIN(1, "Login", new LoginService()),
     REGISTER(2, "Register", new RegisterService()),
-    ADD_STUDENT(3, "Add student", null),
+    ADD_STUDENT(3, "Add student", new AddStudentService()),
     ADD_TEACHER(4, "Add teacher", null),
     SHOW_ALL_STUDENT(5, "Show all student", null),
     SHOW_ALL_TEACHER(6, "Show all teacher", null),
