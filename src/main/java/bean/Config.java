@@ -14,6 +14,13 @@ public class Config {
     private Student[] students = new Student[0];
     private Teacher[] teachers = new Teacher[0];
 
+    public static Config instance() {
+        if (config == null) {
+            config = new Config();
+        }
+        return config;
+    }
+
     public Student[] getStudents() {
         return students;
     }
@@ -30,11 +37,20 @@ public class Config {
         this.teachers = teachers;
     }
 
-    public static Config instance() {
-        if (config == null) {
-            config = new Config();
+    public void createStudent(Student student) {
+        Student[] newStudents = new Student[students.length + 1];
+        for (int i = 0; i < newStudents.length; i++) {
+            newStudents[i] = students[i];
         }
-        return config;
+        newStudents[newStudents.length - 1] = student;
+    }
+
+    public void createTeacher(Teacher teacher) {
+        Teacher[] newTeacher = new Teacher[teachers.length + 1];
+        for (int i = 0; i < newTeacher.length; i++) {
+            newTeacher[i] = teachers[i];
+        }
+        newTeacher[newTeacher.length - 1] = teacher;
     }
 
 }
