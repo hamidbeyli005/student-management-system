@@ -9,6 +9,7 @@ import service.menu.AddTeacherService;
 import service.menu.LoginService;
 import service.menu.interfaces.MenuService;
 import service.menu.RegisterService;
+import service.menu.ShowAllStudent;
 
 /**
  *
@@ -19,7 +20,7 @@ public enum Menu {
     REGISTER(2, "Register", new RegisterService()),
     ADD_STUDENT(3, "Add student", new AddStudentService()),
     ADD_TEACHER(4, "Add teacher", new AddTeacherService()),
-    SHOW_ALL_STUDENT(5, "Show all student", null),
+    SHOW_ALL_STUDENT(5, "Show all student", new ShowAllStudent()),
     SHOW_ALL_TEACHER(6, "Show all teacher", null),
     UNKNOWN;
 
@@ -43,6 +44,7 @@ public enum Menu {
 
     public void process() {
         service.process();
+        MenuUtil.showMenu();
     }
 
     public int getNumber() {
